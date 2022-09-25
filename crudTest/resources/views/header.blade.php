@@ -4,7 +4,7 @@
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="{{route('addProduct')}}" class="nav-link active" aria-current="page">
                     Add new Product</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
         </ul>
     </div>
 </div>

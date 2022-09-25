@@ -1,5 +1,6 @@
 <?php
 
+use http\Env\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $products = DB::table('products')->get();
     return view('products.index',compact('products'));
-});
+})->name('home');
 Route::get('/products', function () {
     $products = DB::table('products')->get();
     return view('products.index',compact('products'));
@@ -24,7 +25,7 @@ Route::get('/products/{product}', function ($id) {
     return view('products.show', compact('product'));
 });
 
-Route::get('test','ProductIdController@testFunction')->name('test') ;
+Route::get('test','ProductIdController@submit')->name('test') ;
 
 Route::get('/add-product', function () {
     return view('addNewProduct');
@@ -34,3 +35,7 @@ Route::get('/add-product', function () {
 use App\Http\Controllers\ProductController;
 
 Route::resource('product', ProductController::class);
+
+/*Чтобы отслеживать страницу используется get чтобы принимать данные из формы используется метод post*/
+Route::post('/product/submit-form', 'ProductIdController@submit'
+)->name('product-form');

@@ -1,7 +1,20 @@
 {{--сделал extends product.show чтобы подключить стили--}}
 @extends('products.show')
 @include('header')
-<form action="" class="px-md-5 py-md-3 form-control-lg" method="post">
+{{--route обращаемся не по конкретному адресу а по названию--}}
+<form action="{{route('product-form')}}" class="px-md-5 py-md-3 form-control-lg" method="post">
+    @csrf   {{--Ключ безопасности для любой формы--}}
+{{--ниже вывожу ошибки--}}
+     @if($errors->any())
+<div class="alert alert-danger ">
+<ul>
+    @foreach($errors->all() as $error)
+ <li>{{$error}}</li>
+    @endforeach
+</ul>
+</div>
+    @endif
+
     <div class="form-group">
         <label for="name">Product Name</label>
         <input type="text" name="name" placeholder="Enter the name of product" id="name" class="form-control">
@@ -15,6 +28,6 @@
         <textarea name="message" id="message" class="form-control" cols="30" rows="10"
                   placeholder="Enter the item description"></textarea>
     </div>
-    <button type="submit" class="btn btn-success mt-1">Submit</button>
+    <button type="submit" class="btn btn-success mt-3">Submit</button>
 </form>
 
