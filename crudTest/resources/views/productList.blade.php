@@ -1,7 +1,5 @@
 <h1 class="text-center m-5">Products List</h1>
-{{--@section('title-block')
-    Products List - понять почему не работает
-@endsection--}}
+
 <div class="row row-cols-1 m-auto mt-5 row-cols-md-3 mb-3 text-center">
     @foreach($products as $productItem)
         <div class="col">

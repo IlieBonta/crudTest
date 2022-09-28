@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Routing\Controller;
+use App\Http\Requests\ProductRequest;
 
 class ProductIdController extends Controller
 {
-    public function submit(Request $request)
+    public function submit(ProductRequest $request)
     {
-    /*  $validation = $request->validate([
-          'name'=>'required|min:3,|max:40',
-          'price'=>'required|min:1|max:11'
-      ]);*/
+
         $product = new Product();
         $product->name = $request->input('name');
         $product->price = $request->input('price');
@@ -22,7 +20,7 @@ class ProductIdController extends Controller
         return redirect()->route('home')->with('success', 'Product was added!');
     }
     public function allData(){
-        return view('messages', ['data' => Product::all()]);
+        return view('messages','productList', ['data' => Product::all()]);
     }
     public function showOneProduct($id){
         return view('products.one-product', ['data' => Product::find($id)]);
@@ -36,7 +34,7 @@ class ProductIdController extends Controller
         return redirect()->route('home')->with('success', 'Product was deleted!');
     }
 
-    public function editProductSubmit($id,Request $request)
+    public function editProductSubmit($id,ProductRequest $request)
     {
         $product = Product::find($id);
         $product->name = $request->input('name');

@@ -1,7 +1,7 @@
 @extends('products.show')
 
 @include('header')
-
+@include('products.messages')
 @section('title-block') Product Edit Page @endsection
 
 <form action="{{route('edit-product-submit', $data->id)}}" class="px-md-5 py-md-3 form-control-lg" method="post">
