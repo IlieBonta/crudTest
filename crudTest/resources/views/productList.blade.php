@@ -13,6 +13,7 @@
                         <li>{{$productItem->description}}</li>
                         <li><small>{{$productItem->created_at}}</small></li>
                     </ul>
+                    <div class="d-flex justify-content-around">
                     <a href="{{ route('one-product',$productItem->id) }}">
                         <button type="button" class="w-80 btn btn-lg btn-primary ">Take a look</button>
                     </a>
@@ -22,6 +23,7 @@
                     <a href="{{ route('delete-product',$productItem->id) }}">
                         <button type="button" class="w-20 btn btn-lg btn-danger btn-primary">Delete</button>
                     </a>
+                    </div>
                 </div>
             </div>
         </div>
