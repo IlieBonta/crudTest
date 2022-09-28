@@ -1,6 +1,6 @@
 
-<div class="container bg-light ">
-    <div class="d-flex justify-content-center py-3">
+<div class="container flex-fill ">
+    <div class="d-flex justify-content-center py-3 flex">
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="{{route('addProduct')}}" class="nav-link active" aria-current="page">
                     Add new Product</a></li>

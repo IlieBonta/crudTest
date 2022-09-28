@@ -31,11 +31,15 @@ Route::get('/add-product', function () {
     return view('addNewProduct');
 })->name('addProduct');
 
-
-use App\Http\Controllers\ProductController;
-
-Route::resource('product', ProductController::class);
-
 /*Чтобы отслеживать страницу используется get чтобы принимать данные из формы используется метод post*/
-Route::post('/product/submit-form', 'ProductIdController@submit'
-)->name('product-form');
+Route::post('/product/submit-form', 'ProductIdController@submit')->name('product-form');
+
+Route::get('/product/{id}', 'ProductIdController@showOneProduct')->name('one-product');
+
+Route::get('/product/{id}/update', 'ProductIdController@editProduct')->name('edit-product');
+Route::post('/product/{id}/update', 'ProductIdController@editProductSubmit')->name('edit-product-submit');
+
+
+Route::get('/product/{id}/delete', 'ProductIdController@deleteProduct')->name('delete-product');
+
+

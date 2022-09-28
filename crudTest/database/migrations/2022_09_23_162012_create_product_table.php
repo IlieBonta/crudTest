@@ -17,9 +17,8 @@ class CreateProductTable extends Migration
             $table->id();
             $table->text('name');
             $table->double('price')->default(0);
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->timestamps();
-
         });
     }
 
